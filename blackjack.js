@@ -1,22 +1,49 @@
-var firstCard = 6
-var secondCard = 9
-var sum =  firstCard + secondCard
+var cards = []
+var sum =  0
 var hasBlackjack = false
 var isAlive = true
 var message = ''
-var cards = [firstCard, secondCard]
 // var sumEl = document.getElementById("sum-el")
 var messageEl = document.getElementById("message-el")
 var sumEl = document.querySelector("#sum-el")
 var cardsEl = document.getElementById("cards-el")
+var player = {
+    name: "Allen",
+    chips:  1000, 
+    sayHello: function() {
+        console.log("hellow world");
+    }
+}
+
+var playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
+function getRandomCard() {
+    randoNumber = Math.floor(Math.random()*13 + 1)
+    if (randoNumber === 1){
+        return 11
+    } else if ( randoNumber > 10 ){
+        return 10
+    } else
+    return randoNumber
+}
+
 
 function startGame(){
+    isAlive = true
+    var firstCard = getRandomCard()
+    var secondCard = getRandomCard()
+    cards=[firstCard, secondCard]
+    sum = firstCard + secondCard
     renderGame()
 }
 
 function renderGame() {
-    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
-
+    cardsEl.textContent = "Cards: "
+    for (var i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+    }
+    
     sumEl.textContent = 'Sum: ' + sum
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
@@ -31,10 +58,13 @@ function renderGame() {
 }
 
 function newCard(){
-    var card = 7
-    sum += card
-    renderGame()
-    console.log("test");
+    if (hasBlackjack === false && isAlive === true){
+        var card = getRandomCard()
+        cards.push(card)
+        sum += card
+        renderGame()
+        console.log(cards);
+    }
 }
 
 var age = 22 
