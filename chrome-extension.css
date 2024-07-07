@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding:  10px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 400px;
+}
+
+input {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid blueviolet;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+ul {
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-top: 5px;
+
+}
+
+li a {
+    color: purple;
+}
